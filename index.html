@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header" class="card reverse">
+        <div class="player">
+            <div class="player-name">Player X</div>
+            <div id="player-x-score" class="player-score"></div>
+        </div>
+        <div id="current-player"></div>
+        <div class="player">
+            <div class="player-name">Player O</div>
+            <div id="player-o-score" class="player-score"></div>
+        </div>
+    </div>
+    <div id="board">
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+        <div class="card cell"></div>
+    </div>
+    <div id="game-control">
+        <button id="reset-game" class="card hover">Reset Game</button>
+        <button id="next-round" class="card hover hidden">Next Round</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

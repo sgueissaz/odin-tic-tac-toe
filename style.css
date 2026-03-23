@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: 
+        "header"
+        "board"
+        "control";
+
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background-color: white;
+    color: black;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem black;
+    padding: 1em;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.reverse {
+    background-color: black;
+    color: white;
+}
+
+.card.hover:hover {
+    background-color: black;
+    color: white;
+}
+
+#header {
+    grid-area: header;
+    align-self: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+
+    font-size: 2rem;
+    font-weight: bold;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#header>* {
+    border-right: 2px solid white;
+    padding: 1em;
+}
+
+#header>*:last-child {
+    border-right: none;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#board {
+    grid-area: board;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.cell {
+    aspect-ratio: 1;
+    padding: 0;
+}
+
+.icon {
+    --_icon-url: var(--icon-url);
+
+    width: 100%;
+    height: 100%;
+
+    background-color: currentColor;
+
+    mask: var(--_icon-url) no-repeat center;
+    -webkit-mask: var(--_icon-url) no-repeat center;
+
+    mask-size: contain;
+    -webkit-mask-size: contain;
+
+    flex-shrink: 0;
+}
+
+#game-control {
+    grid-area: control;
+    align-self: center;
+
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.hidden { 
+    display: none;
+}
+
+.x {
+    --icon-url: url("icons/x.svg");
+}
+
+.o {
+    --icon-url: url("icons/o.svg");
+}
+
+@media only screen and (min-width: 1200px) {
+    body {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 4fr 1fr;
+        grid-template-areas: 
+            "left header right"
+            "left board right"
+            "left control right";
+    }
+}
