@@ -179,7 +179,7 @@ const uiController = ((gameBoard, game) => {
 
         playerXScore.textContent = state.playerXScore;
         playerOScore.textContent = state.playerOScore;
-        currentPlayer.textContent = `Player ${state.currentPlayerMark.toUpperCase()}'s Turn!`;
+        currentPlayer.textContent = `${state.currentPlayerMark.toUpperCase()}`;
 
         board.forEach((cell, i) => {
             cells[i].innerHTML = '';
