@@ -124,6 +124,7 @@ const game = ((gameBoard) => {
 
     function state() {
         return {
+            gameBoard: gameBoard.get(),
             playerXScore: playerX.getScore(),
             playerOScore: playerO.getScore(),
             currentPlayerMark: currentPlayer.mark,
@@ -147,7 +148,7 @@ const game = ((gameBoard) => {
     return {play, state, nextRound, reset}
 })(gameBoard);
 
-const uiController = ((gameBoard, game) => {
+const uiController = ((game) => {
     const playerXScore = document.getElementById('player-x-score');
     const playerOScore = document.getElementById('player-o-score');
     const currentPlayer = document.getElementById('current-player');
@@ -175,13 +176,12 @@ const uiController = ((gameBoard, game) => {
 
     function render() {
         const state = game.state();
-        const board = gameBoard.get();
 
         playerXScore.textContent = state.playerXScore;
         playerOScore.textContent = state.playerOScore;
         currentPlayer.textContent = `${state.currentPlayerMark.toUpperCase()}`;
 
-        board.forEach((cell, i) => {
+        state.gameBoard.forEach((cell, i) => {
             cells[i].innerHTML = '';
 
             if (cell.mark != '') {
@@ -205,4 +205,4 @@ const uiController = ((gameBoard, game) => {
     }
 
     render();
-})(gameBoard, game);
+})(game);
